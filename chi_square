@@ -1,0 +1,17 @@
+import numpy as np
+import pandas as pd
+import scipy.stats as stat
+df=pd.read_csv('Dataset/aug_test.csv')
+ct_table_ind=pd.crosstab(df['education_level'],df["major_disciplane"])
+print("contigency_table:\n",ct_table_ind)
+chi2_stat,p,dof,expected=stat.chi2_contingency(ct_table_ind)
+print(p)
+if p<0.05:
+    print("rejecte null hypothesis")
+else:
+    print("acept null hypothesis")
+
+
+
+
+
